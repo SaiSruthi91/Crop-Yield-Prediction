@@ -77,9 +77,10 @@ This project helps farmers make **data-driven crop decisions** using a machine l
 
 | Input Form                     | Crop Prediction Result                |
 |-------------------------------|---------------------------------------|
-| ![Input](https://github.com/user/input-form-sample.png) | ![Output](https://github.com/user/output-result-sample.png) |
+| ![Input](https://github.com/user-attachments/assets/93818095-baa0-4a2b-8f9e-a950a9938092) | ![Output](https://github.com/user-attachments/assets/5ab35693-96f5-4b87-ab23-3c16d69a15dd) |
 
 ---
+
 
 # 🚀 Future Enhancements
 
@@ -120,7 +121,7 @@ python app.py
 
 ---
 
-## 📬 Contact
+# 📬 Contact
 
 **Sai Sruthi Karnatakapu**  
 📧 [k.saisruthi913@gmail.com](mailto:k.saisruthi913@gmail.com)  
