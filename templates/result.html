@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crop Recommendation Result</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+    }
+
+    /* Background video */
+    #bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -2;
+      object-fit: cover;
+    }
+
+    /* Dark overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(10, 10, 10, 0.7);
+      z-index: -1;
+    }
+
+    /* Transparent card */
+    .container {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 700px;
+      margin: 60px auto;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #aef79a;
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #d4ffbf;
+      margin-bottom: 20px;
+    }
+
+    .crop-image {
+      max-width: 300px;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .image-placeholder {
+      color: #ffaaaa;
+      font-style: italic;
+      margin: 20px;
+    }
+
+    .input-summary {
+      text-align: left;
+      margin-top: 30px;
+    }
+
+    .input-summary h3 {
+      color: #c0ffc0;
+      margin-bottom: 10px;
+    }
+
+    .input-summary ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .input-summary li {
+      padding: 6px 0;
+      border-bottom: 1px dashed #888;
+      color: #f0f0f0;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #43a047;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: #2e7d32;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px;
+        margin: 20px;
+      }
+      .crop-image {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background video -->
+  <video autoplay muted loop id="bg-video">
+    <source src="{{ url_for('static', filename='videos/new1.mp4') }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Dark overlay -->
+  <div class="overlay"></div>
+
+  <!-- Glassmorphism card -->
+  <div class="container">
+    <h1>🌾 Best Crop Recommendation</h1>
+    <h2>{{ prediction }}</h2>
+
+    {% set crop_key = prediction.lower().replace(' ', '_').replace('-', '_') %}
+    <img src="{{ url_for('static', filename='images/' + crop_key + '.jpg') }}" alt="{{ prediction }}" class="crop-image" onerror="this.style.display='none';">
+
+    {% if uploaded_image_url %}
+      <h3>Your Uploaded Crop Image:</h3>
+      <img src="{{ uploaded_image_url }}" alt="Uploaded Crop" class="crop-image">
+    {% endif %}
+
+    <div class="input-summary">
+      <h3>Your Input Details:</h3>
+      <ul>
+        <li><strong>Crop:</strong> {{ input_data['crop'] }}</li>
+        <li><strong>Year:</strong> {{ input_data['year'] }}</li>
+        <li><strong>Season:</strong> {{ input_data['season'] }}</li>
+        <li><strong>State:</strong> {{ input_data['state'] }}</li>
+        <li><strong>Area:</strong> {{ input_data['area'] }} hectares</li>
+        <li><strong>Production:</strong> {{ input_data['production'] }} tons</li>
+        <li><strong>Annual Rainfall:</strong> {{ input_data['rainfall'] }} mm</li>
+        <li><strong>Fertilizer:</strong> {{ input_data['fertilizer'] }} kg/hectare</li>
+        <li><strong>Pesticide:</strong> {{ input_data['pesticide'] }} kg/hectare</li>
+        <li><strong>Yield:</strong> {{ input_data['yield'] }} tons/hectare</li>
+      </ul>
+    </div>
+
+    <a href="{{ url_for('home') }}" class="btn">Return to Home Page</a>
+  </div>
+</body>
+</html>

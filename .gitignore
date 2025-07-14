@@ -1,0 +1,26 @@
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+.venv
+pip-selfcheck.json
+
+# Ignore virtual environment
+venv/
+
+# Ignore all .pkl model files
+*.pkl
+
+# Optional: Ignore CatBoost training logs and metadata
+catboost_info/
+
+# Ignore other cache or temporary files
+__pycache__/
+*.log
+*.tsv

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crop Yield Prediction</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Fullscreen video background */
+    #bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      filter: brightness(0.5);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 10, 10, 0.7);
+      z-index: -1;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 650px;
+      width: 100%;
+      margin: 50px auto;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+      color: #f1f1f1;
+    }
+
+    h1 {
+      text-align: center;
+      color: #96eb9a;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ffffff;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      font-size: 15px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      color: #000;
+    }
+
+    input:focus, select:focus {
+      border-color: #2e7d32;
+      outline: none;
+    }
+
+    .btn {
+      background-color: #2e7d32;
+      color: white;
+      font-weight: bold;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #1b5e20;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px;
+        margin: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Background video using Flask -->
+  <video autoplay muted loop id="bg-video">
+    <source src="{{ url_for('static', filename='videos/new.mp4') }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <h1>🌱 Crop Yield Prediction</h1>
+    <p>Enter your farming details to get the best crop recommendation</p>
+    
+    <form id="predictionForm" action="/predict" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="crop">Current Crop</label>
+        <input type="text" id="crop" name="crop" required />
+      </div>
+
+      <div class="form-group">
+        <label for="year">Crop Year</label>
+        <input type="number" id="year" name="year" min="1800" max="2030" required />
+      </div>
+
+      <div class="form-group">
+        <label for="season">Season</label>
+        <select id="season" name="season" required>
+          <option value="">Select Season</option>
+          <option value="Kharif">Kharif</option>
+          <option value="Rabi">Rabi</option>
+          <option value="Summer">Summer</option>
+          <option value="Winter">Winter</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="state">State</label>
+        <input type="text" id="state" name="state" required />
+      </div>
+
+      <div class="form-group">
+        <label for="area">Area (hectares)</label>
+        <input type="number" id="area" name="area" step="0.01" min="0" required />
+      </div>
+
+      <div class="form-group">
+        <label for="production">Production (tons)</label>
+        <input type="number" id="production" name="production" step="0.01" min="0" required />
+      </div>
+
+      <div class="form-group">
+        <label for="rainfall">Annual Rainfall (mm)</label>
+        <input type="number" id="rainfall" name="rainfall" step="0.1" min="0" required />
+      </div>
+
+      <div class="form-group">
+        <label for="fertilizer">Fertilizer (kg/hectare)</label>
+        <input type="number" id="fertilizer" name="fertilizer" step="0.1" min="0" required />
+      </div>
+
+      <div class="form-group">
+        <label for="pesticide">Pesticide (kg/hectare)</label>
+        <input type="number" id="pesticide" name="pesticide" step="0.1" min="0" required />
+      </div>
+
+      <div class="form-group">
+        <label for="yield">Current Yield (tons/hectare)</label>
+        <input type="number" id="yield" name="yield" step="0.01" min="0" required />
+      </div>
+
+      <div class="form-group">
+        <label for="crop_image">Upload Crop Image (Optional)</label>
+        <input type="file" id="crop_image" name="crop_image" accept="image/*" />
+      </div>
+
+      <button type="submit" class="btn">Get Recommendation</button>
+    </form>
+  </div>
+</body>
+</html>
