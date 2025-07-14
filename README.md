@@ -9,13 +9,13 @@
 
 ---
 
-## 🧠 Project Overview
+# 🧠 Project Overview
 
 This project helps farmers make **data-driven crop decisions** using a machine learning model trained on agricultural data. It analyzes various parameters like rainfall, pesticide/fertilizer usage, and environmental conditions to predict the **most suitable crop** for better yield and sustainability.
 
 ---
 
-## ⚙️ Technologies Used
+# ⚙️ Technologies Used
 
 * Python  
 * Flask (Web framework)  
@@ -38,7 +38,7 @@ This project helps farmers make **data-driven crop decisions** using a machine l
 
 ---
 
-## 📁 Project Structure
+# 📁 Project Structure
 
 ```
 
@@ -58,7 +58,7 @@ This project helps farmers make **data-driven crop decisions** using a machine l
 
 ---
 
-## 📊 Features Analyzed
+# 📊 Features Analyzed
 
 - 🌾 Crop  
 - 📅 Crop Year  
@@ -73,7 +73,7 @@ This project helps farmers make **data-driven crop decisions** using a machine l
 
 ---
 
-## 🖼️ Screenshots
+# 🖼️ Screenshots
 
 | Input Form                     | Crop Prediction Result                |
 |-------------------------------|---------------------------------------|
@@ -81,7 +81,7 @@ This project helps farmers make **data-driven crop decisions** using a machine l
 
 ---
 
-## 🚀 Future Enhancements
+# 🚀 Future Enhancements
 
 * Cloud deployment with real-time data  
 * Add yield prediction as a separate module  
@@ -90,7 +90,7 @@ This project helps farmers make **data-driven crop decisions** using a machine l
 
 ---
 
-## 🛠️ Setup & Installation
+# 🛠️ Setup & Installation
 
 1. Clone the repository:
 ```bash
