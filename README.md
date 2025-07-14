@@ -119,11 +119,10 @@ pip install -r requirements.txt
 python app.py
 ```
 
----
-
 # 📬 Contact
 
 **Sai Sruthi Karnatakapu**  
 📧 [k.saisruthi913@gmail.com](mailto:k.saisruthi913@gmail.com)  
 🔗 [LinkedIn Profile](https://www.linkedin.com/in/saisruthikarnatakapu/)  
+
 ```
