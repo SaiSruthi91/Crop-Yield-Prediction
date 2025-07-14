@@ -122,9 +122,7 @@ python app.py
 
 ## 📬 Contact
 
-**Sai Sruthi Karnatakapu**
-📧 [k.saisruthi913@gmail.com](mailto:k.saisruthi913@gmail.com)
-🔗 [LinkedIn](https://www.linkedin.com/in/saisruthikarnatakapu/)
-📁 [GitHub Project](https://github.com/SaiSruthi91/Crop-Yield-Prediction)
-
+**Sai Sruthi Karnatakapu**  
+📧 [k.saisruthi913@gmail.com](mailto:k.saisruthi913@gmail.com)  
+🔗 [LinkedIn Profile](https://www.linkedin.com/in/saisruthikarnatakapu/)  
 ```
