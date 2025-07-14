@@ -1,6 +1,3 @@
-Here’s a professionally formatted **README.md** file in code block format for your **Crop Yield Prediction project**, just like the one you referenced:
-
-```markdown
 # 🌾 Crop Yield Prediction Using Machine Learning 🚀
 
 **Smart farming solution using ML to predict the most suitable crop based on environmental and historical data**
